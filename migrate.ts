@@ -63,6 +63,7 @@ export default class Migrate {
 
   public async exit() {
     await this.client.end()
+    this.logger?.info('Database disconnected')
   }
 
   public async getMigrations(): Promise<Migration[]> {

@@ -31,19 +31,20 @@ class ConsoleHandler extends BaseHandler {
   }
 }
 
-await stdLog.setup({
-  handlers: {
-    console: new ConsoleHandler('DEBUG', {
-      formatter: `[{levelName}] {msg}`,
-    }),
-  },
-
-  loggers: {
-    default: {
-      level: 'DEBUG',
-      handlers: ['console'],
+export default async function getLogger(level = 'INFO') {
+  await stdLog.setup({
+    handlers: {
+      console: new ConsoleHandler('DEBUG', {
+        formatter: `[{levelName}] {msg}`,
+      }),
     },
-  },
-})
+    loggers: {
+      default: {
+        handlers: ['console'],
+        level,
+      },
+    },
+  })
 
-export default stdLog.getLogger()
+  return stdLog.getLogger()
+}

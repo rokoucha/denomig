@@ -3,7 +3,7 @@ import { Client } from 'https://deno.land/x/postgres/mod.ts'
 import { parse } from 'https://deno.land/std/flags/mod.ts'
 import $ from 'https://cdn.jsdelivr.net/gh/rokoucha/transform-ts@master/mod.ts'
 
-import logger from './logger.ts'
+import getLogger from './logger.ts'
 import Migrate from './migrate.ts'
 
 async function main() {
@@ -12,18 +12,21 @@ async function main() {
     database: $.string,
     down: $.optional($.string),
     hostname: $.string,
+    id: $.optional($.number),
+    log: $.optional($.string),
     password: $.string,
     path: $.optional($.string),
     port: $.number,
     table: $.optional($.string),
     up: $.optional($.string),
     username: $.string,
-    id: $.optional($.number),
   })
 
   const ARGS = argsTransformer.transformOrThrow(parse(Deno.args))
   const SELF = ARGS._.shift()
   const SUBCOMMAND = ARGS._.shift()
+
+  const logger = await getLogger(ARGS.log)
 
   const client = new Client({
     database: ARGS.database,
@@ -88,6 +91,7 @@ Subcommands:
 Options:
   --down   File name of down SQL
   --id:    Target id
+  --log:   Logging level (DEBUG or INFO)
   --path   Path to migration files
   --up:    File name of up SQL`)
       Deno.exit(0)
