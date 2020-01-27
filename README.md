@@ -1,2 +1,2 @@
 # denomig
-Simplest database migration tool for deno-postgres 
+Simplest database migration tool for deno-postgres

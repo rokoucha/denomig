@@ -1,0 +1,21 @@
+version: "3"
+services:
+  postgres:
+    image: postgres:12-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: denomig
+      POSTGRES_PASSWORD: denomig
+      POSTGRES_DB: denomig
+      POSTGRES_INITDB_ARGS: "--encoding=UTF-8"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+  adminer:
+    image: adminer
+    ports:
+      - "8080:8080"
+
+volumes:
+  postgres-data:
+    driver: local
