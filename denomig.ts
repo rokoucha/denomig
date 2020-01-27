@@ -2,8 +2,7 @@
 import { Client } from 'https://deno.land/x/postgres/mod.ts'
 import { parse } from 'https://deno.land/std/flags/mod.ts'
 import $ from 'https://cdn.jsdelivr.net/gh/rokoucha/transform-ts@master/mod.ts'
-
-import getLogger from './logger.ts'
+import getLogger from 'https://gist.githubusercontent.com/rokoucha/b2db8f7348b0a4cbefea9011dedd0633/raw/e14643875ee09b6e097db0b3df2ea955be8a0474/consolelogger.ts'
 import Migrate from './migrate.ts'
 
 async function main() {
