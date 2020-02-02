@@ -1,6 +1,6 @@
 #!/usr/bin/env -S deno --allow-env --allow-net --allow-read
-import { Client } from 'https://deno.land/x/postgres/mod.ts'
-import { parse } from 'https://deno.land/std/flags/mod.ts'
+import { Client } from 'https://deno.land/x/postgres@v0.3.6/mod.ts'
+import { parse } from 'https://deno.land/std@v0.31.0/flags/mod.ts'
 import $ from 'https://cdn.jsdelivr.net/gh/rokoucha/transform-ts@master/mod.ts'
 import getLogger from 'https://gist.githubusercontent.com/rokoucha/b2db8f7348b0a4cbefea9011dedd0633/raw/CustomizedConsoleLogger.ts'
 import Migrate from './migrate.ts'

@@ -1,6 +1,6 @@
-import { Client } from 'https://deno.land/x/postgres/mod.ts'
-import { Logger } from 'https://deno.land/std/log/logger.ts'
-import { join } from 'https://deno.land/std/path/mod.ts'
+import { Client } from 'https://deno.land/x/postgres@v0.3.6/mod.ts'
+import { Logger } from 'https://deno.land/std@v0.31.0/log/logger.ts'
+import { join } from 'https://deno.land/std@v0.31.0/path/mod.ts'
 
 export interface Migration {
   defined: boolean
