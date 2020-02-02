@@ -37,7 +37,7 @@ async function main() {
     username: $.string,
   }).transformOrThrow(ARGS)
 
-  const SELF = PARAMS._.shift()
+  const SELF = 'denomig.ts'
   const SUBCOMMAND = PARAMS._.shift()
 
   const logger = await getLogger(PARAMS.log)
