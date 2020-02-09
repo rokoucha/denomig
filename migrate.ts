@@ -171,5 +171,7 @@ export default class Migrate {
         migration.name,
       )
     }
+
+    await this.client.query("SELECT setval('id', $1);", id ?? 0)
   }
 }
