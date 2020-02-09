@@ -172,6 +172,6 @@ export default class Migrate {
       )
     }
 
-    await this.client.query("SELECT setval('id', $1);", id ?? 0)
+    await this.client.query(`SELECT setval('${this.table}_id_seq', $1);`, id ?? 0)
   }
 }
