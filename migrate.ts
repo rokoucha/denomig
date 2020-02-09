@@ -172,6 +172,7 @@ export default class Migrate {
       )
     }
 
+    this.logger?.info(`Reset id sequence`)
     await this.client.query(`SELECT setval('${this.table}_id_seq', $1, false);`, id ? id + 1 : 1)
   }
 }
